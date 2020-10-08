@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advance CSS Selectors</title>
+    <style>
+        .validation input {
+            padding: 10px;
+            font-size: 15px;
+            outline: none;
+        }
+        .validation input:invalid {
+            border-color: red;
+        }
+        .validation input:valid {
+            border-color: green;
+        }
+        .validation div {
+            display: inline-block;
+        }
+        .validation div.layer_2 {
+            width: 0px;
+            overflow: hidden;
+        }
+        .validation div.layer_1 {
+            width: 250px;
+        }
+        .validation input:valid+div {
+            transition: 0.2s;
+        }
+        .validation input:invalid+div {
+            width: 250px;
+            transition: 0.7s;
+        }
+        .validation div span {
+            color: green;
+        }
+        .validation input:invalid+div span.error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <form class="validation">
+        
+        <input type="text" 
+               placeholder="enter phone number"
+               pattern="^[2-9]\d{2}-\d{3}-\d{4}$"
+               required>
+        
+        <div class="layer_2">
+            <div class="layer_1">
+                <span class="error">
+                    You must enter a valid phone number.
+                </span>       
+            </div>
+        </div>
+
+    </form>
+
+</body>
+</html>
